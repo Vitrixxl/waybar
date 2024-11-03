@@ -1,0 +1,174 @@
+{
+  "layer": "top",
+    "position": "top",
+    "height":"30px",
+    "modules-left": [
+      "hyprland/workspaces",
+    ],
+    "hyprland/workspaces": {
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "default": "",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "active": "󱓻",
+        "urgent": "󱓻"
+      },
+      "persistent_workspaces": {
+        "1": ["eDP-1"],
+        "2": ["eDP-1"],
+        "3": ["eDP-1"],
+        "4": ["eDP-1"],
+        "5": ["eDP-1"]
+      }
+    },
+
+    "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "wireplumber",
+    "battery",
+    ],
+    "modules-center":[
+      "clock"
+    ],
+
+    // Modules
+
+    "battery": {
+      "format": "{capacity}% {icon}",
+      "format-icons": {
+        "charging": [
+          "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+        ],
+        "default": [
+          "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+        ]
+      },
+      "format-full": "Charged ",
+      "interval": 5,
+      "states": {
+        "warning": 20,
+        "critical": 10
+      },
+      "tooltip": false
+    },
+    "custom/batterylabel":{
+      "format":"{capacity}",
+      "tooltip":false
+    },
+
+    "clock": {
+      "tooltip-format": "{calendar}",
+      "format-alt": "  {:%a, %d %b %Y}",
+      "format": "  {:%I:%M %p}"
+    },
+
+
+    "cpu": {
+      "interval": 20,
+      "tooltip": false,
+      "format": "  {usage}%",
+      "format-alt": "  {load}",
+      "states": {
+        "warning": 70,
+        "critical": 90
+      }
+    },
+
+    "memory": {
+      "interval": 5,
+      "format": "󰍛 {}%",
+      "max-length": 10
+    },
+    "network": {
+      "format-wifi" : "{icon}",
+      "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+      "format-ethernet": "󰀂",
+      "format-alt" : "󱛇",
+      "format-disconnected" : "󰖪",
+      "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "tooltip-format-disconnected": "Disconnected",
+      "on-click": "~/.config/rofi/wifi/wifi.sh &",
+      "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
+      "interval": 5,
+      "nospacing": 1,
+    },
+      "wireplumber": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀","󰕾",""]
+        },
+        "on-click": "pamixer -t",
+        "scroll-step": 1
+    },
+
+    "sway/mode": {
+      "format": "{}",
+      "tooltip": false
+    },
+
+    "sway/window": {
+      "format": "{}",
+      "tooltip": false
+    },
+
+    "sway/workspaces": {
+      "disable-scroll-wraparound": true,
+      "smooth-scrolling-threshold": 4,
+      "enable-bar-scroll": true,
+      "format": "{name}"
+    },
+
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{icon}  {volume}%",
+      "format-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "tooltip": false
+    },
+}
+
